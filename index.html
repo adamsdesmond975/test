@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logger++ Test</title>
+    <script>
+        // JavaScript code to send an HTTP request using fetch API
+        function sendRequest() {
+            // URL to send the request to
+            const apiUrl = 'https://jsonplaceholder.typicode.com/posts';
+
+            // Prepare the data to send
+            const requestData = {
+                title: 'Test Post',
+                body: 'This is a test post sent from JavaScript',
+                userId: 1
+            };
+
+            // Send the POST request using fetch
+            fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(requestData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Request successful:', data);
+            })
+            .catch((error) => {
+                console.error('Request failed:', error);
+            });
+        }
+
+        // Send the request when the page loads
+        window.onload = function() {
+            sendRequest();
+        };
+    </script>
+</head>
+<body>
+    <h1>Logger++ Test Page</h1>
+    <p>This page will send a request to a test API using JavaScript.</p>
+</body>
+</html>
